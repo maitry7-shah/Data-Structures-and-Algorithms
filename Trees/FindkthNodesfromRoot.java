@@ -4,17 +4,16 @@ import java.util.*;
 public class FindkthNodesfromRoot {
 
 	public void  findNodesfromRoot(TreeNode root, int k) {
-		Queue<TreeNode> q=new LinkedList<TreeNode>();
-		q.add(root);
+		if(root==null)
+			return;
 		
-		
-		while(!q.isEmpty()) {
-//			int temp=q.poll();
-			
-		}
+		if(k==0)
+			System.out.println(root.val);
 		
 		
 		
+		
+
 	}
 	
 public static void main(String args[]) {

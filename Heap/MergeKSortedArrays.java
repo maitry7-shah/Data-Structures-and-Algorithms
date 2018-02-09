@@ -15,8 +15,6 @@ class Element{
 }
 
 public class MergeKSortedArrays {
-	 
-	
 	
 	public static ArrayList<Integer> mergeArrays(List<ArrayList<Integer>> lists) {
 		int index=0, listNumber=0;
@@ -57,8 +55,6 @@ public class MergeKSortedArrays {
 				newElement.listNumber=listNumber;
 				newElement.val=Integer.MAX_VALUE;
 			}*/
-			
-			
 			
 		}
 		

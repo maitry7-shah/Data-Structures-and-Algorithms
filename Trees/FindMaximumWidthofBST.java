@@ -6,7 +6,7 @@ public class FindMaximumWidthofBST {
 	static ArrayList<Integer> list;
 	
 
-	public void findMaximumWidth(TreeNode root, int level) {
+	public void findMaximumWidth(BTree root, int level) {
 		if(root==null)
 			return;
 		
@@ -26,12 +26,22 @@ public class FindMaximumWidthofBST {
 	}
 	
 	public static void main(String args[]) {
-		TreeNode treeleft=new TreeNode(3,new TreeNode(1,null,null),new TreeNode(4,null,null) );
-		TreeNode treeright=new TreeNode(7,new TreeNode(6,null,null),new TreeNode(8,null,null) );
-		TreeNode treenode=new TreeNode(5, treeleft,treeright);
+		BTree root = new BTree(1);
+		MaximumWidthofBinaryTree tree=new MaximumWidthofBinaryTree();
+
+
+		root.left = new BTree(2);
+		root.right = new BTree(3);
+		root.left.left = new BTree(4);
+		root.right.right = new BTree(8);
+		root.left.left.left = new BTree(6);
+		root.right.right.right = new BTree(7);
+
+		System.out.println("Maximum width is " + tree.widthOfBinaryTree(root));
+
 		list=new ArrayList<Integer>();
 		FindMaximumWidthofBST fmax=new FindMaximumWidthofBST();
-		fmax.findMaximumWidth(treenode,0);
+		fmax.findMaximumWidth(root,0);
 		
 		for (int x: list) {
 			System.out.println(x);

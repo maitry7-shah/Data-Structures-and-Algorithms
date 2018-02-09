@@ -3,13 +3,10 @@ import java.util.Stack;
 
 public class LargestRectangularArea {
 
-	// The main function to find the maximum rectangular area under given
-	// histogram with n bars
+	
 	static int getMaxArea(int hist[], int n) 
 	{
-		// Create an empty stack. The stack holds indexes of hist[] array
-		// The bars stored in stack are always in increasing order of their
-		// heights.
+		
 		Stack<Integer> s = new Stack<>();
 
 		int max_area = 0; // Initialize max area

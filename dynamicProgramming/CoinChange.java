@@ -1,3 +1,4 @@
+package dynamicProgramming;
 
 public class CoinChange {
 	public int coinChange(int number,int[] set,int sindex) {
@@ -8,11 +9,7 @@ public class CoinChange {
 		if(number<0 || sindex<0)
 		return 0;
 		
-		
-		
 		return coinChange(number,set,sindex-1) + coinChange(number-set[sindex],set,sindex);
-			
-		
 	}
 	
 	public static void main(String args[]) {

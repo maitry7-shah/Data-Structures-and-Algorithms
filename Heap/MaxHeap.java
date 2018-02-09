@@ -1,8 +1,6 @@
 package Heap;
 
 public class MaxHeap {
-
-	 
 	 private int heapSize;
 	 private int[] heap;
 

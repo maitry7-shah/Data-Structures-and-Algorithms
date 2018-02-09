@@ -1,60 +1,72 @@
 package Heap;
-
-public class MinHeap {
-
-	 private static final int d = 2;
-	 private int heapSize;
-	 private int[] heap;
-
-	 MinHeap(int heapCapacity){
-		 heapSize=0;
-		 heap=new int[heapCapacity];
-	 }
-	 
-	 public void insert(int num) {
-		 if(heapSize!=heap.length)
-		 heap[heapSize++]=num;
-		 else
-			 System.out.println("Overflow");
-		 heapifyUp(num,heapSize);	 
-	 }
-	 
-	 public int getParentIndex(int index) {
-		 return (index-1)/2;
-	 }
-	 
-	 public void heapifyUp(int num, int heapSize) {
-		 int i=heapSize-1;
-		 int temp;
-		 
-		while(i!=0 && heap[getParentIndex(i)]> heap[i]) {
-			temp=heap[getParentIndex(i)];
-			heap[getParentIndex(i)]=heap[i];
-			heap[i]=temp;
-			i=getParentIndex(i);
-		}
-	 }
-	 
-	   public void printHeap()
-	    {
-	        System.out.print("\nHeap = ");
-	        for (int i = 0; i < heapSize; i++)
-	            System.out.print(heap[i] +" ");
-	        System.out.println();
-	    }  
-	 
-	public static void main(String[] args) {
-		MinHeap mp=new MinHeap(10);
-		mp.insert(3);
-		mp.insert(2);
-		mp.insert(1);
-		mp.insert(5);
-		mp.insert(7);
-		mp.insert(4);
-		mp.insert(15);
-		mp.insert(8);
-		mp.insert(45);
-		mp.printHeap();
-		
-	}
+public class MinHeap
+{
+    public void sort(int arr[])
+    {
+        int n = arr.length;
+ 
+        // Build heap (rearrange array)
+        for (int i = n / 2 - 1; i >= 0; i--)
+            heapify(arr, n, i);
+ 
+       
+            // Move current root to end
+            int temp = arr[0];
+            arr[0] = arr[n-1];
+            arr[n-1] = temp;
+ 
+            // call max heapify on the reduced heap
+            heapify(arr, n-1, 0);
+        
+    }
+ 
+    // To heapify a subtree rooted with node i which is
+    // an index in arr[]. n is size of heap
+    void heapify(int arr[], int n, int i)
+    {
+        int largest = i;  // Initialize largest as root
+        int l = 2*i + 1;  // left = 2*i + 1
+        int r = 2*i + 2;  // right = 2*i + 2
+ 
+        // If left child is larger than root
+        if (l < n && arr[l] > arr[largest])
+            largest = l;
+ 
+        // If right child is larger than largest so far
+        if (r < n && arr[r] > arr[largest])
+            largest = r;
+ 
+        // If largest is not root
+        if (largest != i)
+        {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+ 
+            // Recursively heapify the affected sub-tree
+            heapify(arr, n, largest);
+        }
+    }
+ 
+    /* A utility function to print array of size n */
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i]+" ");
+        System.out.println();
+    }
+ 
+    // Driver program
+    public static void main(String args[])
+    {
+        int arr[] = {4,10,3,5,1};
+        int n = arr.length;
+ 
+        MinHeap ob = new MinHeap();
+        ob.sort(arr);
+ 
+        System.out.println("Sorted array is");
+        printArray(arr);
+    }
 }

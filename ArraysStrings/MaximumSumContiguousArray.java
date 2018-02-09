@@ -13,7 +13,6 @@ public class MaximumSumContiguousArray {
 			max_sofar=Math.max(sum, max_sofar);
 		}
 		
-		
 		return max_sofar;
 	}
 	

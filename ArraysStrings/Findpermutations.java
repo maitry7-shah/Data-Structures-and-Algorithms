@@ -24,6 +24,6 @@ public class Findpermutations {
 	  public static void main(String args[]) {
 		  int[] nums= {1,2,3};
 		  Findpermutations fp=new Findpermutations();
-		  List<List<Integer>> outerList=fp.permute(nums);
+		  fp.permute(nums);
 	  }
 }
